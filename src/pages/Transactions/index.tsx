@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
-import { SearchForm } from './components/SearchFOrm'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
+import { SearchForm } from './components/SearchForm'
 import {
   PriceHighlight,
   TransactionContainer,
@@ -8,6 +11,7 @@ import {
 } from './styles'
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionsContext)
   return (
     <div>
       <Header />
@@ -16,40 +20,23 @@ export function Transactions() {
         <SearchForm></SearchForm>
         <TransactionTableContainer>
           <tbody>
-            <tr>
-              <td width="50%"> Compra no supermercado</td>
-              <td>
-                <PriceHighlight variant="income"> R$ 17.400,00</PriceHighlight>
-              </td>
-              <td> Supermercado</td>
-              <td> 13/04/2022</td>
-            </tr>
-            <tr>
-              <td width="50%"> Compra no Ivis Roche</td>
-              <td>
-                <PriceHighlight variant="outcome">
-                  - R$ 17.400,00
-                </PriceHighlight>
-              </td>
-              <td> Cosmetico</td>
-              <td> 13/04/2022</td>
-            </tr>
-            <tr>
-              <td width="50%"> Compra no restaurante</td>
-              <td>
-                <PriceHighlight variant="income"> R$ 17.400,00</PriceHighlight>
-              </td>
-              <td> Saidas</td>
-              <td> 13/04/2022</td>
-            </tr>
-            <tr>
-              <td width="50%"> Compra no Bar</td>
-              <td>
-                <PriceHighlight variant="outcome"> R$ 17.400,00</PriceHighlight>
-              </td>
-              <td> Saidas1</td>
-              <td> 13/04/2022</td>
-            </tr>
+            {transactions.map((transaction) => {
+              return (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <PriceHighlight variant={transaction.type}>
+                      {transaction.type === 'outcome' && '- '}
+                      {priceFormatter.format(Number(transaction.price))}
+                    </PriceHighlight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </TransactionTableContainer>
       </TransactionContainer>

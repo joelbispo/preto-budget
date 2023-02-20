@@ -1,0 +1,68 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Compra no AH",
+      "type": "outcome",
+      "category": "Supermercardo",
+      "price": 100,
+      "createdAt": "2023-02-17T09:11:13.991Z"
+    },
+    {
+      "id": 2,
+      "description": "Compra no Restaurante",
+      "type": "outcome",
+      "category": "Supermercardo",
+      "price": 100,
+      "createdAt": "2023-02-17T09:11:13.991Z"
+    },
+    {
+      "id": 3,
+      "description": "Compra no Bar",
+      "type": "outcome",
+      "category": "Supermercardo",
+      "price": 100,
+      "createdAt": "2023-02-17T09:11:13.991Z"
+    },
+    {
+      "id": 4,
+      "description": "Salario Comeco",
+      "type": "income",
+      "category": "Salario",
+      "price": 100,
+      "createdAt": "2023-02-17T09:11:13.991Z"
+    },
+    {
+      "id": 5,
+      "description": "Salario Inicio",
+      "type": "income",
+      "category": "Salario",
+      "price": 100,
+      "createdAt": "2023-02-17T09:11:13.991Z"
+    },
+    {
+      "description": "Teste",
+      "price": 100,
+      "category": "Teste",
+      "type": "income",
+      "createdAt": "2023-02-20T10:44:41.789Z",
+      "id": 6
+    },
+    {
+      "description": "Teste 2",
+      "price": 4,
+      "category": "Teste",
+      "type": "outcome",
+      "createdAt": "2023-02-20T10:46:11.339Z",
+      "id": 7
+    },
+    {
+      "description": "Teste 4",
+      "price": 4,
+      "category": "Teste",
+      "type": "outcome",
+      "createdAt": "2023-02-20T10:46:25.411Z",
+      "id": 8
+    }
+  ]
+}

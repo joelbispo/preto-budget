@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 
@@ -10,7 +10,7 @@ export const OverlayContainer = styled(Dialog.Overlay)`
   background: rgba(0, 0, 0, 0.75);
 `
 
-export const ContentContainer = styled(Dialog.Overlay)`
+export const ContentContainer = styled(Dialog.Content)`
   min-width: 32rem;
   border-radius: 6px;
   padding: 2.5rem 3rem;
@@ -51,7 +51,12 @@ export const ContentContainer = styled(Dialog.Overlay)`
       margin-top: 1.5rem;
       cursor: pointer;
 
-      &:hover {
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
         background: ${(props) => props.theme.yellow};
         transition: background-color 0.2s;
       }

@@ -30,7 +30,12 @@ export const SearchFormContainer = styled.form`
     font-weight: bold;
     border-radius: 6px;
 
-    &:hover {
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
       background: transparent;
       border: 1px solid ${(props) => props.theme.tomato};
       color: ${(props) => props.theme.tomato};
